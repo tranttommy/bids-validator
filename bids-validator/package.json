@@ -1,6 +1,6 @@
 {
   "name": "bids-validator",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -63,5 +63,6 @@
   "browser": {
     "fs": false,
     "child_process": false
-  }
+  },
+  "gitHead": "eebe5f9df3fb94779631cf1a4a92ef1dc89a0e19"
 }
