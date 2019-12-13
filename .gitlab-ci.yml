@@ -7,5 +7,6 @@ tests:
     - windows
   script:
     - yarn
+    - git config --system core.longpaths true 
     - git submodule update --init --depth 1
     - yarn jest
