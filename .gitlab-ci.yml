@@ -1,6 +1,3 @@
-before_script:
-  - git config --system core.longpaths true
-
 variables:
   GIT_STRATEGY: fetch
   

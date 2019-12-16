@@ -34,12 +34,13 @@ var missing_session_files = [
   'ieeg_visual',
 ]
 
-const dataDirectory = 'bids-validator/tests/data/'
+const dataDirectory = path.join('bids-validator', 'tests', 'data')
 
 // Generate validate.BIDS input for included minimal tests
 function createDatasetFileList(path) {
-  const testDatasetPath = `${dataDirectory}${path}`
+  const testDatasetPath = `${dataDirectory}/${path}`
   if (!isNode) {
+    console.log({testDatasetPath})
     return createFileList(testDatasetPath)
   } else {
     return testDatasetPath
