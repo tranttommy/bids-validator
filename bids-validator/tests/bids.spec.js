@@ -38,7 +38,7 @@ const dataDirectory = path.join('bids-validator', 'tests', 'data')
 
 // Generate validate.BIDS input for included minimal tests
 function createDatasetFileList(path) {
-  const testDatasetPath = `${dataDirectory}/${path}`
+  const testDatasetPath = `${dataDirectory}/${path}/`
   if (!isNode) {
     console.log({testDatasetPath})
     return createFileList(testDatasetPath)
@@ -49,7 +49,7 @@ function createDatasetFileList(path) {
 
 // Generate validate.BIDS input for bids-examples
 function createExampleFileList(path) {
-  return createDatasetFileList(`bids-examples/${path}/`)
+  return createDatasetFileList(`bids-examples/${path}`)
 }
 
 function assertErrorCode(errors, expected_error_code) {
@@ -65,7 +65,7 @@ describe('BIDS example datasets ', function() {
   const enableNiftiHeaders = { json: true }
 
   describe('basic example dataset tests', () => {
-    getDirectories(dataDirectory + 'bids-examples/').forEach(
+    getDirectories(dataDirectory + '/bids-examples/').forEach(
       function testDataset(path) {
         it(path, isdone => {
           validate.BIDS(createExampleFileList(path), options, function(issues) {
