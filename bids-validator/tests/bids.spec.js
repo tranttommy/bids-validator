@@ -37,8 +37,8 @@ var missing_session_files = [
 const dataDirectory = path.join('bids-validator', 'tests', 'data')
 
 // Generate validate.BIDS input for included minimal tests
-function createDatasetFileList(path) {
-  const testDatasetPath = `${dataDirectory}/${path}/`
+function createDatasetFileList(midPath) {
+  const testDatasetPath = path.join(dataDirectory, midPath)
   if (!isNode) {
     return createFileList(testDatasetPath)
   } else {
@@ -47,8 +47,8 @@ function createDatasetFileList(path) {
 }
 
 // Generate validate.BIDS input for bids-examples
-function createExampleFileList(path) {
-  return createDatasetFileList(`bids-examples/${path}`)
+function createExampleFileList(midPath) {
+  return createDatasetFileList(path.join('bids-examples', midPath))
 }
 
 function assertErrorCode(errors, expected_error_code) {
@@ -64,28 +64,27 @@ describe('BIDS example datasets ', function() {
   const enableNiftiHeaders = { json: true }
 
   describe('basic example dataset tests', () => {
-    getDirectories(dataDirectory + '/bids-examples/').forEach(
-      function testDataset(path) {
-        it(path, isdone => {
-          validate.BIDS(createExampleFileList(path), options, function(issues) {
-            var warnings = issues.warnings
-            var session_flag = false
-            for (var warning in warnings) {
-              if (warnings[warning]['code'] === 38) {
-                session_flag = true
-                break
-              }
+    const bidsExamplePath = path.join(dataDirectory, 'bids-examples')
+    getDirectories(bidsExamplePath).forEach(function testDataset(path) {
+      it(path, isdone => {
+        validate.BIDS(createExampleFileList(path), options, function(issues) {
+          var warnings = issues.warnings
+          var session_flag = false
+          for (var warning in warnings) {
+            if (warnings[warning]['code'] === 38) {
+              session_flag = true
+              break
             }
-            if (missing_session_files.indexOf(path) === -1) {
-              assert.deepEqual(session_flag, false)
-            } else {
-              assert.deepEqual(session_flag, true)
-            }
-            isdone()
-          })
+          }
+          if (missing_session_files.indexOf(path) === -1) {
+            assert.deepEqual(session_flag, false)
+          } else {
+            assert.deepEqual(session_flag, true)
+          }
+          isdone()
         })
-      },
-    )
+      })
+    })
   })
 
   // we need to have at least one non-dynamic test
