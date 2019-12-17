@@ -20,12 +20,10 @@ describe('CLI', () => {
 
   it('should display usage hints when no arguments / options are provided', done => {
     const command = spawn(cli_path, [])
-    command.stderr.on('data', data => console.log(data))
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
-      console.log({dataLines})
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
