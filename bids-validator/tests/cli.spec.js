@@ -19,7 +19,7 @@ describe('CLI', () => {
   })
 
   it('should display usage hints when no arguments / options are provided', done => {
-    const command = spawn('node', [cli_path]) //binary, remainder (pass into spawn)
+    const command = spawn('node', [cli_path])
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
@@ -27,7 +27,7 @@ describe('CLI', () => {
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
-      assert.equal(commandOutput[0], usageHint)  // commandOutput[0] becomes undefined on Windows
+      assert.equal(commandOutput[0], usageHint)
       done()
     })
   })

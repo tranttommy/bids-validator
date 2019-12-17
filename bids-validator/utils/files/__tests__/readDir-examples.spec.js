@@ -4,6 +4,8 @@ describe('readDir.js - examples integration', () => {
   describe('readDir()', () => {
     it('returns expected files', async done => {
       readDir('bids-validator/tests/data/bids-examples/ds002/').then(files => {
+        const filenames = (Object.values(files).map(f => f.name)
+        filenames.sort()
         expect(Object.keys(files)).toHaveLength(245)
         expect(files[0].name).toBe('CHANGES')
         expect(files[25].name).toBe(
@@ -18,7 +20,9 @@ describe('readDir.js - examples integration', () => {
         ignoreSymlinks: false,
       }).then(files => {
         expect(Object.keys(files)).toHaveLength(12)
-        expect(Object.values(files).map(f => f.name)).toEqual([
+        const filenames = (Object.values(files).map(f => f.name)
+        filenames.sort()
+        expect(filenames).toEqual([
           'CHANGES',
           'README',
           'dataset_description.json',
