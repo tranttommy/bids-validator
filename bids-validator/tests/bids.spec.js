@@ -39,7 +39,6 @@ const dataDirectory = path.join('bids-validator', 'tests', 'data')
 // Generate validate.BIDS input for included minimal tests
 function createDatasetFileList(midPath) {
   const testDatasetPath = path.join(dataDirectory, midPath)
-  console.log({testDatasetPath})
   if (!isNode) {
     return createFileList(testDatasetPath)
   } else {
@@ -116,7 +115,6 @@ describe('BIDS example datasets ', function() {
   // we need to have at least one non-dynamic test
   it('validates dataset with valid nifti headers', function(isdone) {
     var options = { ignoreNiftiHeaders: false }
-    console.log({options})
     validate.BIDS(createDatasetFileList('valid_headers'), options, function(
       issues,
       summary,
