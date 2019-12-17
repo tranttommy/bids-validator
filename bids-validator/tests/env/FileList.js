@@ -20,7 +20,7 @@ function getFilepaths(dir, files_) {
   files_ = files_ || []
   const files = fs.readdirSync(dir)
   files
-    .map(file => `${dir}/${file}`)
+    .map(file => path.join(dir, file))
     .map(path =>
       isDirectory(path) ? getFilepaths(path, files_) : files_.push(path),
     )
