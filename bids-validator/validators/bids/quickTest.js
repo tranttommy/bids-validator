@@ -1,5 +1,4 @@
 import utils from '../../utils'
-import path from 'path'
 /**
  * Quick Test
  *
@@ -13,15 +12,15 @@ const quickTest = fileList => {
   const keys = Object.keys(fileList)
   const couldBeBIDS = keys.some(key => {
     const file = fileList[key]
-    let pathName = file.relativePath
-    if (pathName) {
-      pathName = pathName.split(path.sep)
-      pathName = pathName.reverse()
+    let path = file.relativePath
+    if (path) {
+      path = path.split('/')
+      path = path.reverse()
 
-      const isCorrectModality = utils.modalities.isCorrectModality(pathName)
+      const isCorrectModality = utils.modalities.isCorrectModality(path)
       let pathIsSesOrSub =
-      pathName[2] &&
-        (pathName[2].indexOf('ses-') == 0 || pathName[2].indexOf('sub-') == 0)
+      path[2] &&
+        (path[2].indexOf('ses-') == 0 || path[2].indexOf('sub-') == 0)
 
       return pathIsSesOrSub && isCorrectModality
     }
