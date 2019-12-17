@@ -33,7 +33,7 @@ describe('CLI', () => {
   })
 
   it('should accept a directory as the first argument without error', done => {
-    const command = spawn(cli_path, [test_data])
+    const command = spawn('node', [cli_path, test_data])
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
@@ -46,7 +46,7 @@ describe('CLI', () => {
   })
 
   it('should accept an array of options as the second argument without error', done => {
-    const command = spawn(cli_path, [test_data, '--json'])
+    const command = spawn('node', [cli_path, test_data, '--json'])
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
@@ -59,7 +59,7 @@ describe('CLI', () => {
   })
 
   it('without errors should exit with code 0', done => {
-    const command = spawn(cli_path, [data_without_errors, '--json'])
+    const command = spawn('node', [cli_path, data_without_errors, '--json'])
     command.on('exit', code => {
       assert.equal(code, 0)
       done()
@@ -67,7 +67,7 @@ describe('CLI', () => {
   })
 
   it('with errors should not exit with code 0', done => {
-    const command = spawn(cli_path, [data_with_errors])
+    const command = spawn('node', [cli_path, data_with_errors])
     command.on('exit', code => {
       assert.notEqual(code, 0)
       done()
@@ -75,7 +75,7 @@ describe('CLI', () => {
   })
 
   it('with errors should not exit with code 0 with --json argument', done => {
-    const command = spawn(cli_path, [data_with_errors, '--json'])
+    const command = spawn('node', [cli_path, data_with_errors, '--json'])
     let commandOutput = []
     let output = {}
     command.stdout.on('data', data => {
@@ -93,7 +93,7 @@ describe('CLI', () => {
   })
 
   it('should print valid json when the --json argument is provided', done => {
-    const command = spawn(cli_path, [test_data, '--json'])
+    const command = spawn('node', [cli_path, test_data, '--json'])
     let commandOutput = ''
     command.stdout.on('data', data => {
       const dataLines = data.toString()
