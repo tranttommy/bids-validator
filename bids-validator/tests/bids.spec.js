@@ -40,7 +40,6 @@ const dataDirectory = path.join('bids-validator', 'tests', 'data')
 function createDatasetFileList(path) {
   const testDatasetPath = `${dataDirectory}/${path}/`
   if (!isNode) {
-    console.log({testDatasetPath})
     return createFileList(testDatasetPath)
   } else {
     return testDatasetPath
