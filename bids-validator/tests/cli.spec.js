@@ -19,7 +19,7 @@ describe('CLI', () => {
   })
 
   it('should display usage hints when no arguments / options are provided', done => {
-    const command = spawn(cli_path, [])
+    const command = spawn('node', [cli_path]) //binary, remainder (pass into spawn)
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
