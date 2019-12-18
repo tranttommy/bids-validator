@@ -67,7 +67,9 @@ describe('BIDS example datasets ', function() {
     const bidsExamplePath = path.join(dataDirectory, 'bids-examples')
     getDirectories(bidsExamplePath).forEach(function testDataset(inputPath) {
       it(inputPath, isdone => {
-        validate.BIDS(createExampleFileList(inputPath), options, function(issues) {
+        validate.BIDS(createExampleFileList(inputPath), options, function(
+          issues,
+        ) {
           var warnings = issues.warnings
           var session_flag = false
           for (var warning in warnings) {
@@ -123,7 +125,7 @@ describe('BIDS example datasets ', function() {
       var warnings = issues.warnings
       assert(summary.sessions.length === 0)
       assert(summary.subjects.length === 1)
-      assert.deepEqual(summary.subjectMetadata, [
+      assert.deepEqual(summary.subjectMetadata, [ // summary obj missing age
         {
           participantId: '01',
           age: 25,

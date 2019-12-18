@@ -6,7 +6,6 @@ const test_data = data_dir + 'valid_headers/'
 const data_with_errors = data_dir + 'empty_files'
 const data_without_errors = data_dir + 'valid_dataset'
 
-
 const cli_path = './bids-validator/bin/bids-validator'
 
 describe('CLI', () => {
@@ -28,7 +27,7 @@ describe('CLI', () => {
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
-      const dataLines = data.toString().split('\n')
+      const dataLines = data.toString().trim().split('\n')
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
@@ -48,10 +47,10 @@ describe('CLI', () => {
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
-      commandOutput = commandOutput.concat(dataLines)
+      commandOutput = commandOutput.concat(dataLines) 
     })
-    command.stderr.on('end', () => {
-      assert.equal(commandOutput.length, 0)
+    command.stderr.on('end', () => { 
+      assert.equal(commandOutput.length, 0) // expected 2 to equal 0 - len is 
       done()
     })
   })
@@ -60,12 +59,13 @@ describe('CLI', () => {
     jest.setTimeout(30000)
     const command = spawn('node', [cli_path, test_data, '--json'])
     let commandOutput = []
-    command.stderr.on('data', data => {
+    command.stderr.on('data', data => { 
       const dataLines = data.toString().split('\n')
       commandOutput = commandOutput.concat(dataLines)
+      console.log({commandOutput})
     })
-    command.stderr.on('end', () => {
-      assert.equal(commandOutput.length, 0)
+    command.stderr.on('end', () => { 
+      assert.equal(commandOutput.length, 0) // expected 2 to equal 0 - len is 
       done()
     })
   })
@@ -96,10 +96,10 @@ describe('CLI', () => {
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
-      output = JSON.parse(commandOutput.join(''))
+      output = JSON.parse(commandOutput.join('')) //null?
     })
     command.on('exit', code => {
-      assert(output.issues.errors.length > 0)
+      assert(output.issues.errors.length > 0) // errors -> issues undefined, output undefined 
       assert.notEqual(code, 0)
       done()
     })
