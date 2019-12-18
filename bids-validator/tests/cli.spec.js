@@ -6,6 +6,7 @@ const test_data = data_dir + 'valid_headers/'
 const data_with_errors = data_dir + 'empty_files'
 const data_without_errors = data_dir + 'valid_dataset'
 
+
 const cli_path = './bids-validator/bin/bids-validator'
 
 describe('CLI', () => {
@@ -19,6 +20,11 @@ describe('CLI', () => {
 
   it('should display usage hints when no arguments / options are provided', done => {
     const command = spawn('node', [cli_path])
+    command.on('error', err => console.error('err', err))
+    command.on('exit', err => console.error('exit', err))
+    command.on('close', err => console.error('close', err))
+    command.on('disconnect', err => console.error('disconnect', err))
+    command.on('message', err => console.error('msg', err))
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
@@ -34,6 +40,11 @@ describe('CLI', () => {
   it('should accept a directory as the first argument without error', done => {
     jest.setTimeout(30000)
     const command = spawn('node', [cli_path, test_data])
+    command.on('error', err => console.error('err', err))
+    command.on('exit', err => console.error('exit', err))
+    command.on('close', err => console.error('close', err))
+    command.on('disconnect', err => console.error('disconnect', err))
+    command.on('message', err => console.error('msg', err))
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
