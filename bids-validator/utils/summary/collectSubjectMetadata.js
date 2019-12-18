@@ -1,6 +1,5 @@
 const PARTICIPANT_ID = 'participantId'
 const AGE = 'age'
-const SEX = 'sex'
 /**
  * Go from tsv format string with participant_id as a required header to array of form
  * [
@@ -30,7 +29,7 @@ const collectSubjectMetadata = participantsTsvContent => {
     const headers = snakeCaseHeaders.map(header =>
       header === 'participant_id' ? PARTICIPANT_ID : header,
     )
-    const targetKeys = [PARTICIPANT_ID, AGE, SEX]
+    const targetKeys = [PARTICIPANT_ID, 'age', 'sex', 'group']
       .map(key => ({
         key,
         index: headers.findIndex(targetKey => targetKey === key),
@@ -40,7 +39,7 @@ const collectSubjectMetadata = participantsTsvContent => {
       ({ key }) => key === PARTICIPANT_ID,
     )
     const ageKey = targetKeys.find(({ key }) => key === AGE)
-    if (participantIdKey === undefined || ageKey === undefined) return null
+    if (participantIdKey === undefined) return null
     else
       return subjectData
         .map(data => {
