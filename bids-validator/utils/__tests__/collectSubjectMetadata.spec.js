@@ -11,7 +11,7 @@ sub-02	38	M
     assert.lengthOf(subjectMetadata, 2)
     assert.deepEqual(subjectMetadata[0], {
       participantId: '01',
-      age: 34,
+      age: "34",
       sex: 'F',
     })
   })

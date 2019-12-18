@@ -128,7 +128,7 @@ describe('BIDS example datasets ', function() {
       assert.deepEqual(summary.subjectMetadata, [
         {
           participantId: '01',
-          age: 25,
+          age: '25',
           sex: 'M',
         },
       ])

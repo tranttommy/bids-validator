@@ -29,7 +29,7 @@ const collectSubjectMetadata = participantsTsvContent => {
     const headers = snakeCaseHeaders.map(header =>
       header === 'participant_id' ? PARTICIPANT_ID : header,
     )
-    const targetKeys = [PARTICIPANT_ID, 'age', 'sex', 'group']
+    const targetKeys = [PARTICIPANT_ID, AGE, 'sex', 'group']
       .map(key => ({
         key,
         index: headers.findIndex(targetKey => targetKey === key),
@@ -50,7 +50,7 @@ const collectSubjectMetadata = participantsTsvContent => {
             '',
           )
           // make age an integer
-          if (ageKey) data[ageKey.index] = parseInt(data[ageKey.index])
+          // if (ageKey) data[ageKey.index] = parseInt(data[ageKey.index])
           return data
         })
         .map(data =>
