@@ -40,7 +40,7 @@ const collectSubjectMetadata = participantsTsvContent => {
       ({ key }) => key === PARTICIPANT_ID,
     )
     const ageKey = targetKeys.find(({ key }) => key === AGE)
-    if (participantIdKey === undefined) return null
+    if (participantIdKey === undefined || ageKey === undefined) return null
     else
       return subjectData
         .map(data => {

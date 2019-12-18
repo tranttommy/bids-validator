@@ -130,9 +130,8 @@ describe('BIDS example datasets ', function() {
             participantId: '01',
             age: 25,
             sex: 'M',
-          },
+          }
         ].sort())
-      console.log(summary.subjectMetadata)
       assert.deepEqual(summary.tasks, ['rhyme judgment'])
       assert.isFalse(summary.dataProcessed)
       assert(summary.modalities.includes('T1w'))
