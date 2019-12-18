@@ -22,7 +22,7 @@ const SEX = 'sex'
  */
 const collectSubjectMetadata = participantsTsvContent => {
   if (participantsTsvContent) {
-    const contentTable = participantsTsvContent 
+    const contentTable = participantsTsvContent
       .split('\n')
       .filter(row => row !== '')
       .map(row => row.split('\t'))
