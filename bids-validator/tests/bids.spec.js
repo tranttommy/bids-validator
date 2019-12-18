@@ -37,8 +37,8 @@ var missing_session_files = [
 const dataDirectory = path.join('bids-validator', 'tests', 'data')
 
 // Generate validate.BIDS input for included minimal tests
-function createDatasetFileList(midPath) {
-  const testDatasetPath = path.join(dataDirectory, midPath)
+function createDatasetFileList(inputPath) {
+  const testDatasetPath = path.join(dataDirectory, inputPath)
   if (!isNode) {
     return createFileList(testDatasetPath)
   } else {
@@ -47,8 +47,8 @@ function createDatasetFileList(midPath) {
 }
 
 // Generate validate.BIDS input for bids-examples
-function createExampleFileList(midPath) {
-  return createDatasetFileList(path.join('bids-examples', midPath))
+function createExampleFileList(inputPath) {
+  return createDatasetFileList(path.join('bids-examples', inputPath))
 }
 
 function assertErrorCode(errors, expected_error_code) {
@@ -65,9 +65,9 @@ describe('BIDS example datasets ', function() {
 
   describe('basic example dataset tests', () => {
     const bidsExamplePath = path.join(dataDirectory, 'bids-examples')
-    getDirectories(bidsExamplePath).forEach(function testDataset(path) {
-      it(path, isdone => {
-        validate.BIDS(createExampleFileList(path), options, function(issues) {
+    getDirectories(bidsExamplePath).forEach(function testDataset(inputPath) {
+      it(inputPath, isdone => {
+        validate.BIDS(createExampleFileList(inputPath), options, function(issues) {
           var warnings = issues.warnings
           var session_flag = false
           for (var warning in warnings) {
@@ -76,7 +76,7 @@ describe('BIDS example datasets ', function() {
               break
             }
           }
-          if (missing_session_files.indexOf(path) === -1) {
+          if (missing_session_files.indexOf(inputPath) === -1) {
             assert.deepEqual(session_flag, false)
           } else {
             assert.deepEqual(session_flag, true)
