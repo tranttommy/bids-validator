@@ -129,8 +129,8 @@ describe('BIDS example datasets ', function() {
         {
           participantId: '01',
           age: 25,
-          sex: 'M',
-        },
+          sex: 'M'
+        }
       ])
       assert.deepEqual(summary.tasks, ['rhyme judgment'])
       assert.isFalse(summary.dataProcessed)
