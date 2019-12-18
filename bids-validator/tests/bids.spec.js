@@ -125,9 +125,13 @@ describe('BIDS example datasets ', function() {
       var warnings = issues.warnings
       assert(summary.sessions.length === 0)
       assert(summary.subjects.length === 1)
-      expect(summary.subjectMetadata[0].age).toBe(25)
-      expect(summary.subjectMetadata[0].sex).toBe("M")
-      expect(summary.subjectMetadata[0].participantId).toBe("01")
+      assert.deepEqual(summary.subjectMetadata, [
+        {
+          participantId: '01',
+          age: 25,
+          sex: 'M',
+        },
+      ])
       assert.deepEqual(summary.tasks, ['rhyme judgment'])
       assert.isFalse(summary.dataProcessed)
       assert(summary.modalities.includes('T1w'))
