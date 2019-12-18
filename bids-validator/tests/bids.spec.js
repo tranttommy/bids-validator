@@ -132,6 +132,7 @@ describe('BIDS example datasets ', function() {
           sex: 'M',
         },
       ])
+      console.log(summary.subjectMetadata)
       assert.deepEqual(summary.tasks, ['rhyme judgment'])
       assert.isFalse(summary.dataProcessed)
       assert(summary.modalities.includes('T1w'))

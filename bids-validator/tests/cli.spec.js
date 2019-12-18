@@ -19,15 +19,10 @@ describe('CLI', () => {
 
   it('should display usage hints when no arguments / options are provided', done => {
     const command = spawn('node', [cli_path])
-    command.on('error', err => console.error('err', err))
-    command.on('exit', err => console.error('exit', err))
-    command.on('close', err => console.error('close', err))
-    command.on('disconnect', err => console.error('disconnect', err))
-    command.on('message', err => console.error('msg', err))
     const usageHint = 'Usage: bids-validator <dataset_directory> [options]'
     let commandOutput = []
     command.stderr.on('data', data => {
-      const dataLines = data.toString().trim().split('\n')
+      const dataLines = data.toString().split('\n')
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
@@ -39,18 +34,13 @@ describe('CLI', () => {
   it('should accept a directory as the first argument without error', done => {
     jest.setTimeout(30000)
     const command = spawn('node', [cli_path, test_data])
-    command.on('error', err => console.error('err', err))
-    command.on('exit', err => console.error('exit', err))
-    command.on('close', err => console.error('close', err))
-    command.on('disconnect', err => console.error('disconnect', err))
-    command.on('message', err => console.error('msg', err))
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
       commandOutput = commandOutput.concat(dataLines) 
     })
     command.stderr.on('end', () => { 
-      expect(commandOutput.length).toEqual(0) // expected 2 to equal 0 - len is 
+      expect(commandOutput.length).toEqual(0) 
       done()
     })
   })
@@ -62,10 +52,9 @@ describe('CLI', () => {
     command.stderr.on('data', data => { 
       const dataLines = data.toString().split('\n')
       commandOutput = commandOutput.concat(dataLines)
-      console.log({commandOutput})
     })
     command.stderr.on('end', () => {
-      expect(commandOutput.length).toEqual(0) // expected 2 to equal 0 - len is 
+      expect(commandOutput.length).toEqual(0)  
       done()
     })
   })
@@ -96,10 +85,10 @@ describe('CLI', () => {
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
-      output = JSON.parse(commandOutput.join('')) //null?
+      output = JSON.parse(commandOutput.join(''))
     })
     command.on('exit', code => {
-      assert(output.issues.errors.length > 0) // errors -> issues undefined, output undefined 
+      assert(output.issues.errors.length > 0) 
       assert.notEqual(code, 0)
       done()
     })
