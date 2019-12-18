@@ -1,13 +1,12 @@
 import { assert } from 'chai'
 import { spawn } from 'child_process'
-import path from 'path'
 const dir = process.cwd()
-const data_dir = path.join(dir, 'bids-validator', 'tests', 'data')
-const test_data = path.join(data_dir, 'valid_headers')
-const data_with_errors = path.join(data_dir, 'empty_files')
-const data_without_errors = path.join(data_dir, 'valid_dataset')
+const data_dir = dir + '/bids-validator/tests/data/'
+const test_data = data_dir + 'valid_headers/'
+const data_with_errors = data_dir + 'empty_files'
+const data_without_errors = data_dir + 'valid_dataset'
 
-const cli_path = path.join('bids-validator', 'bin', 'bids-validator')
+const cli_path = './bids-validator/bin/bids-validator'
 
 describe('CLI', () => {
   it('should import the cli without issue', function() {
