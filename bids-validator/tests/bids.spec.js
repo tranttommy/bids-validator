@@ -125,7 +125,7 @@ describe('BIDS example datasets ', function() {
       var warnings = issues.warnings
       assert(summary.sessions.length === 0)
       assert(summary.subjects.length === 1)
-      assert.deepEqual(summary.subjectMetadata, [ // summary obj missing age
+      expect(summary.subjectMetadata).toEqual([
         {
           participantId: '01',
           age: 25,

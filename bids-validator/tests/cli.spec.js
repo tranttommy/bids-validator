@@ -37,10 +37,10 @@ describe('CLI', () => {
     let commandOutput = []
     command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
-      commandOutput = commandOutput.concat(dataLines) 
+      commandOutput = commandOutput.concat(dataLines)
     })
-    command.stderr.on('end', () => { 
-      expect(commandOutput.length).toEqual(0) 
+    command.stderr.on('end', () => {
+      expect(commandOutput.length).toEqual(0)
       done()
     })
   })
@@ -49,12 +49,12 @@ describe('CLI', () => {
     jest.setTimeout(30000)
     const command = spawn('node', [cli_path, test_data, '--json'])
     let commandOutput = []
-    command.stderr.on('data', data => { 
+    command.stderr.on('data', data => {
       const dataLines = data.toString().split('\n')
       commandOutput = commandOutput.concat(dataLines)
     })
     command.stderr.on('end', () => {
-      expect(commandOutput.length).toEqual(0)  
+      expect(commandOutput.length).toEqual(0)
       done()
     })
   })
@@ -88,7 +88,7 @@ describe('CLI', () => {
       output = JSON.parse(commandOutput.join(''))
     })
     command.on('exit', code => {
-      assert(output.issues.errors.length > 0) 
+      assert(output.issues.errors.length > 0)
       assert.notEqual(code, 0)
       done()
     })
