@@ -7,7 +7,7 @@ const test_data = path.join(data_dir, 'valid_headers')
 const data_with_errors = path.join(data_dir, 'empty_files')
 const data_without_errors = path.join(data_dir, 'valid_dataset')
 
-const cli_path = './bids-validator/bin/bids-validator'
+const cli_path = path.join('bids-validator', 'bin', 'bids-validator')
 
 describe('CLI', () => {
   it('should import the cli without issue', function() {
