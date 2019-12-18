@@ -7,8 +7,8 @@ describe('readDir.js - examples integration', () => {
         const filenames = Object.values(files).map(f => f.name)
         filenames.sort()
         expect(filenames).toHaveLength(245)
-        expect(filenames[0].name).toBe('CHANGES')
-        expect(filenames[25].name).toBe(
+        expect(filenames[0]).toBe('CHANGES')
+        expect(filenames[25]).toBe(
           'sub-02_task-mixedeventrelatedprobe_run-01_events.tsv',
         )
         expect(filenames[200].name).toBe('sub-15_T1w.nii.gz')
