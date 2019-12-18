@@ -50,7 +50,7 @@ describe('CLI', () => {
       commandOutput = commandOutput.concat(dataLines) 
     })
     command.stderr.on('end', () => { 
-      assert.equal(commandOutput.length, 0) // expected 2 to equal 0 - len is 
+      expect(commandOutput.length).toEqual(0) // expected 2 to equal 0 - len is 
       done()
     })
   })
@@ -64,8 +64,8 @@ describe('CLI', () => {
       commandOutput = commandOutput.concat(dataLines)
       console.log({commandOutput})
     })
-    command.stderr.on('end', () => { 
-      assert.equal(commandOutput.length, 0) // expected 2 to equal 0 - len is 
+    command.stderr.on('end', () => {
+      expect(commandOutput.length).toEqual(0) // expected 2 to equal 0 - len is 
       done()
     })
   })
