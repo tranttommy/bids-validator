@@ -50,7 +50,7 @@ const collectSubjectMetadata = participantsTsvContent => {
             '',
           )
           // make age an integer
-          // if (ageKey) data[ageKey.index] = parseInt(data[ageKey.index])
+          if (ageKey) data[ageKey.index] = parseInt(data[ageKey.index])
           return data
         })
         .map(data =>
