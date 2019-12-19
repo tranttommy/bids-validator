@@ -123,7 +123,6 @@ describe('BIDS example datasets ', function() {
     ) {
       var errors = issues.errors
       var warnings = issues.warnings
-      console.log(summary.subjectMetadata)
       assert(summary.sessions.length === 0)
       assert(summary.subjects.length === 1)
       assert.deepEqual(summary.tasks, ['rhyme judgment'])

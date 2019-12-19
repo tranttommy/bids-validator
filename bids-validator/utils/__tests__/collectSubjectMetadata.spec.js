@@ -8,6 +8,7 @@ sub-01	34	F
 sub-02	38	M
 `
     const subjectMetadata = collectSubjectMetadata(tsvFile)
+    console.log({subjectMetadata})
     assert.lengthOf(subjectMetadata, 2)
     assert.deepEqual(subjectMetadata[0], {
       participantId: '01',

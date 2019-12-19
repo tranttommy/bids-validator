@@ -19,6 +19,7 @@ const PARTICIPANT_ID = 'participantId'
  * @param {string} participantsTsvContent
  */
 const collectSubjectMetadata = participantsTsvContent => {
+  console.log({participantsTsvContent})
   if (participantsTsvContent) {
     const contentTable = participantsTsvContent
       .split('\n')
