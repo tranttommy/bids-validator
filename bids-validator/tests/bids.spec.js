@@ -139,13 +139,11 @@ describe('BIDS example datasets ', function() {
         warnings.findIndex(warning => warning.code === 13) > -1,
         'warnings do not contain a code 13',
       )
-      assert.deepEqual(summary.subjectMetadata, [
-        {
+      assert.deepEqual(summary.subjectMetadata[0], {
           age: 25,
           participantId: '01',
           sex: 'M',
-        },
-      ])
+        })
       isdone()
     })
   })
