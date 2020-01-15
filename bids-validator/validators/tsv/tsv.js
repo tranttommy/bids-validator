@@ -193,13 +193,14 @@ const TSV = (file, contents, fileList, callback) => {
         if (!row || /^\s*$/.test(row)) {
           continue
         }
+        // participant_id must begin with prefix 'sub-'
         if (!row[participantIdColumn].startsWith('sub-')) {
           issues.push(
             new Issue({
               file: file,
               evidence: row[participantIdColumn],
               line: l,
-              code: 125,
+              code: 126,
             }),
           )
         }
@@ -207,13 +208,14 @@ const TSV = (file, contents, fileList, callback) => {
         if (participant == 'emptyroom') {
           continue
         }
+        // enforce one row per participant_id
         participants.includes(participant)
           ? issues.push(
               new Issue({
                 file: file,
                 evidence: participant,
                 line: l,
-                code: 126,
+                code: 127,
               }),
             )
           : participants.push(participant)
