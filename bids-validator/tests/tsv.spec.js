@@ -149,6 +149,16 @@ describe('TSV', function() {
     })
   })
 
+  it('should not allow duplicate participant_ids in participants.tsv file', function() {
+    var tsv =
+      'participant_id\theader-two\tage\n' +
+      'sub-01\tvalue-two\t7\n' +
+      'sub-01\tvalue-three\t8'
+    validate.TSV.TSV(participantsFile, tsv, [], function(issues) {
+      assert(issues.length === 1 && issues[0].code === 125)
+    })
+  })
+
   // _scans checks -----------------------------------------------------------------
 
   var scansFile = {

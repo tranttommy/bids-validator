@@ -697,4 +697,10 @@ export default {
     reason:
       'Units in .tsv files must be valid SI units as described in the BIDS spec Appendix V (https://bids-specification.readthedocs.io/en/stable/99-appendices/05-units.html).'
   },
+  125: {
+    key: 'DUPLICATE ',
+    severity: 'error',
+    reason:
+      'Each participant needs to be described by one and only one row. If the dataset includes multiple sets of participant level measurements (e.g. responses from multiple questionnaires), they can be split into individual files separate from participants.tsv. More Info: (https://bids-specification.readthedocs.io/en/stable/03-modality-agnostic-files.html#participants-file).'
+  },
 }
