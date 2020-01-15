@@ -155,7 +155,7 @@ describe('TSV', function() {
       'sub-01\tvalue-two\t7\n' +
       '02\tvalue-three\t8'
     validate.TSV.TSV(participantsFile, tsv, [], function(issues) {
-      assert(issues.length === 1 && issues[0].code === 125)
+      assert(issues.length === 1 && issues[0].code === 126)
     })
   })
 
@@ -165,7 +165,7 @@ describe('TSV', function() {
       'sub-01\tvalue-two\t7\n' +
       'sub-01\tvalue-three\t8'
     validate.TSV.TSV(participantsFile, tsv, [], function(issues) {
-      assert(issues.length === 1 && issues[0].code === 126)
+      assert(issues.length === 1 && issues[0].code === 127)
     })
   })
 
