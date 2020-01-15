@@ -698,7 +698,13 @@ export default {
       'Units in .tsv files must be valid SI units as described in the BIDS spec Appendix V (https://bids-specification.readthedocs.io/en/stable/99-appendices/05-units.html).'
   },
   125: {
-    key: 'DUPLICATE ',
+    key: 'MISSING_SUB_PREFIX',
+    severity: 'error',
+    reason:
+      'All subject IDs in the participant_id column must be prefixed `sub-`, as follows: `sub-<label>`. More Info: (https://bids-specification.readthedocs.io/en/stable/03-modality-agnostic-files.html#participants-file).'
+  },
+  126: {
+    key: 'DUPLICATE_PARTICIPANT_ID',
     severity: 'error',
     reason:
       'Each participant needs to be described by one and only one row. If the dataset includes multiple sets of participant level measurements (e.g. responses from multiple questionnaires), they can be split into individual files separate from participants.tsv. More Info: (https://bids-specification.readthedocs.io/en/stable/03-modality-agnostic-files.html#participants-file).'
