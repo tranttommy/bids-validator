@@ -193,6 +193,16 @@ const TSV = (file, contents, fileList, callback) => {
         if (!row || /^\s*$/.test(row)) {
           continue
         }
+        if (!row[participantIdColumn].startsWith('sub-')) {
+          issues.push(
+            new Issue({
+              file: file,
+              evidence: row[participantIdColumn],
+              line: l,
+              code: 125,
+            }),
+          )
+        }
         const participant = row[participantIdColumn].replace('sub-', '')
         if (participant == 'emptyroom') {
           continue
@@ -203,7 +213,7 @@ const TSV = (file, contents, fileList, callback) => {
                 file: file,
                 evidence: participant,
                 line: l,
-                code: 125,
+                code: 126,
               }),
             )
           : participants.push(participant)
