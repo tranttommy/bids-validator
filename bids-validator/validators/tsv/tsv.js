@@ -197,7 +197,16 @@ const TSV = (file, contents, fileList, callback) => {
         if (participant == 'emptyroom') {
           continue
         }
-        participants.push(participant)
+        participants.includes(participant)
+          ? issues.push(
+              new Issue({
+                file: file,
+                evidence: participant,
+                line: l,
+                code: 125,
+              }),
+            )
+          : participants.push(participant)
       }
     }
   }
