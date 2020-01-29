@@ -9,10 +9,10 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - npm-deps-{{ checksum "package.json" }}
+            - npm-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
       - run: yarn
       - save_cache:
-          key: npm-deps-{{ checksum "package.json" }}
+          key: npm-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths: node_modules
       - run:
           name: Eslint
@@ -49,7 +49,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - npm-deps-{{ checksum "package.json" }}
+            - npm-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
       - run: apk --no-cache add rsync git python build-base openssh
       - run:
           name: Install bids-validator and bids-validator-web dependencies
