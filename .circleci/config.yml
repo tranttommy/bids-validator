@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: node:12.14.1-alpine
+      - image: node:13.7.0-alpine
     steps:
       - run: apk --no-cache add ca-certificates git openssh-client
       - checkout
