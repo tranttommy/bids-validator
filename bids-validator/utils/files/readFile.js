@@ -39,6 +39,9 @@ function readFile(file, annexed, dir) {
         }
         if (!remoteBuffer) {
           fs.readFile(file.path, function(err, data) {
+            if (err) {
+              return reject(err)
+            }
             checkEncoding(file, data, ({ isUtf8 }) => {
               if (!isUtf8) reject(new Issue({ code: 123, file }))
             })
