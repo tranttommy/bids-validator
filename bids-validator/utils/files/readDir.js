@@ -325,10 +325,8 @@ async function getBIDSIgnore(dir) {
 
   const bidsIgnoreFileObj = getBIDSIgnoreFileObj(dir)
   if (bidsIgnoreFileObj) {
-    return readFile(bidsIgnoreFileObj).then(content => {
-      ig.add(content)
-      return ig
-    })
+    const content = await readFile(bidsIgnoreFileObj)
+    ig.add(content)
   }
   return ig
 }
