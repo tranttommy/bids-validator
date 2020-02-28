@@ -275,6 +275,10 @@ async function getFilesFromFs(dir, rootPath, ig, options) {
       path.relative(rootPath, fullPath),
     )
     const ignore = ig.ignores(path.relative('/', relativePath))
+    if (fullPath.includes('extra_file_that_is_not_bids.txt')) {
+      console.log(`IGNORED: ${ignore}`)
+      console.log(`fullPath: ${fullPath}`, `relativePath: ${relativePath}`, ig)
+    }
     if (!ignore) {
       const fileObj = {
         name: file.name,
