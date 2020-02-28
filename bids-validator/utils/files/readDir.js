@@ -277,6 +277,8 @@ async function getFilesFromFs(dir, rootPath, ig, options) {
     const ignore = ig.ignores(path.relative('/', relativePath))
     if (fullPath.includes('extra_file_that_is_not_bids.txt')) {
       console.log(`IGNORED: ${ignore}`)
+      console.log(`Absolute Exists: ${fs.existsSync(fullPath)}`)
+      console.log(`Relative Exists: ${fs.existsSync(relativePath)}`)
       console.log(`fullPath: ${fullPath}`, `relativePath: ${relativePath}`, ig)
     }
     if (!ignore) {
