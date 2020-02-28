@@ -260,8 +260,7 @@ async function getFilesFromGitTree(dir, ig, options) {
  * Recursive helper function for 'preprocessNode'
  */
 async function getFilesFromFs(dir, rootPath, ig, options) {
-  let files
-  files = await fs.promises.readdir(dir, { withFileTypes: true })
+  const files = await fs.promises.readdir(dir, { withFileTypes: true })
   const filesAccumulator = []
   // Closure to merge the next file depth into this one
   const recursiveMerge = async nextRoot => {
@@ -337,22 +336,18 @@ async function getBIDSIgnore(dir) {
  * @returns File object or null if not found
  */
 function getBIDSIgnoreFileObj(dir) {
-  var bidsIgnoreFileObj = null
   if (isNode) {
-    bidsIgnoreFileObj = getBIDSIgnoreFileObjNode(dir)
+    return getBIDSIgnoreFileObjNode(dir)
   } else {
-    bidsIgnoreFileObj = getBIDSIgnoreFileObjBrowser(dir)
+    return getBIDSIgnoreFileObjBrowser(dir)
   }
-  return bidsIgnoreFileObj
 }
 
 function getBIDSIgnoreFileObjNode(dir) {
-  var bidsIgnoreFileObj = null
-  var path = dir + '/.bidsignore'
+  const path = dir + '/.bidsignore'
   if (fs.existsSync(path)) {
-    bidsIgnoreFileObj = { path: path, stats: { size: null } }
+    return { path: path, stats: { size: null } }
   }
-  return bidsIgnoreFileObj
 }
 
 function getBIDSIgnoreFileObjBrowser(dir) {
