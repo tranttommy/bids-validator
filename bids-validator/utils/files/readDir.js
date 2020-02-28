@@ -351,16 +351,13 @@ function getBIDSIgnoreFileObjNode(dir) {
 }
 
 function getBIDSIgnoreFileObjBrowser(dir) {
-  var bidsIgnoreFileObj = null
   for (var i = 0; i < dir.length; i++) {
-    var fileObj = dir[i]
-    var relativePath = harmonizeRelativePath(fileObj.webkitRelativePath)
+    const fileObj = dir[i]
+    const relativePath = harmonizeRelativePath(fileObj.webkitRelativePath)
     if (relativePath === '/.bidsignore') {
-      bidsIgnoreFileObj = fileObj
-      break
+      return fileObj
     }
   }
-  return bidsIgnoreFileObj
 }
 
 export {
