@@ -351,7 +351,7 @@ function getBIDSIgnoreFileObj(dir) {
 
 function getBIDSIgnoreFileObjNode(dir) {
   const path = dir + '/.bidsignore'
-  if (fs.existsSync(path)) {
+  if (fs.accessSync(path)) {
     return { path: path, stats: { size: null } }
   }
 }
