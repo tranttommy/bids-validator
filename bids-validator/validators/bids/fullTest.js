@@ -7,6 +7,7 @@ import NIFTI from '../nifti'
 import bval from '../bval'
 import bvec from '../bvec'
 import Events from '../events'
+import derivatives from '../derivatives'
 import { session } from '../session'
 import checkAnyDataPresent from '../checkAnyDataPresent'
 import headerFields from '../headerFields'
@@ -187,10 +188,18 @@ const fullTest = (fileList, options, annexed, dir, callback) => {
     .then(eventsIssues => {
       self.issues = self.issues.concat(eventsIssues)
 
-      // Validate custom fields in all TSVs and add any issues to the list
-      self.issues = self.issues.concat(
-        tsv.validateTsvColumns(tsvs, jsonContentsDict),
-      )
+      // Validate custom fields in all TSVs
+      return tsv.validateTsvColumns(tsvs, jsonContentsDict)
+    })
+    .then(tsvIssues => {
+      self.issues = self.issues.concat(tsvIssues)
+      if (summary.dataProcessed) {
+        return derivatives.validate(files, fileList)
+      }
+      return []
+    })
+    .then(derivativesIssues => {
+      self.issues = self.issues.concat(derivativesIssues)
 
       // Validate session files
       self.issues = self.issues.concat(session(fileList))
