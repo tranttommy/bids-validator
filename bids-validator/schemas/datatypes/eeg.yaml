@@ -1,0 +1,33 @@
+---
+# First group
+- suffixes:
+    - eeg
+  extensions:
+    - .json
+    - .edf
+    - .vhdr
+    - .vmrk
+    - .eeg
+    - .set
+    - .fdt
+    - .bdf
+  entities:
+    sub: required
+    ses: optional
+    task: required
+    acq: optional
+    run: optional
+# Second group
+- suffixes:
+    - physio
+    - stim
+  extensions:
+    - .tsv.gz
+    - .json
+  entities:
+    sub: required
+    ses: optional
+    task: required
+    acq: optional
+    run: optional
+    recording: optional
