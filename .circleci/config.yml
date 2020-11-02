@@ -86,7 +86,7 @@ jobs:
           command: cd bids-validator-web && npm install
       - run:
           name: Build and export web-validator
-          command: cd bids-validator-web && npm run build && npm run next export && rsync -av ./out/ ~/web_version
+          command: cd bids-validator-web && npm run build && ./node_modules/.bin/next export && rsync -av ./out/ ~/web_version
       - store_artifacts:
           path: ~/web_version
   pypi_precheck:
