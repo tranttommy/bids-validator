@@ -3,12 +3,10 @@
   "properties": {
     "EchoTime": {
       "anyOf": [
-        { "type": "number",
-          "exclusiveMinimum": 0 },
+        { "type": "number", "exclusiveMinimum": 0 },
         {
           "type": "array",
-          "items": { "type": "number" ,
-            "exclusiveMinimum": 0}
+          "items": { "type": "number", "exclusiveMinimum": 0 }
         }
       ]
     },
@@ -21,9 +19,9 @@
       "enum": ["i", "j", "k", "i-", "j-", "k-"]
     },
     "RepetitionTime": {
-         "type": "number",
-          "exclusiveMinimum": 0 
-    }, 
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
     "PulseSequenceType": {
       "type": "string"
     },
@@ -46,16 +44,14 @@
           "items": { "type": "number" }
         }
       ]
-    }, 
+    },
     "LabelingType": {
       "type": "string",
       "enum": ["PASL", "CASL", "PCASL"]
     },
     "LabelingDuration": {
       "anyOf": [
-        { "type": "number",
-          "Minimum": 0 
-        },
+        { "type": "number", "minimum": 0 },
         {
           "type": "array",
           "items": { "type": "number" },
@@ -65,65 +61,63 @@
     },
     "PostLabelingDelay": {
       "anyOf": [
-        { "type": "number",
-          "Minimum": 0 
-        },
+        { "type": "number", "minimum": 0 },
         {
           "type": "array",
           "items": { "type": "number" },
-          "Minimum": 0
+          "minimum": 0
         }
       ]
     },
-    "BackgroundSuppression" : {
-        "type": "boolean" 
+    "BackgroundSuppression": {
+      "type": "boolean"
     },
-    "VascularCrushing" : {
-        "type": "boolean" 
+    "VascularCrushing": {
+      "type": "boolean"
     },
-    "LabelingLocationDescription" :{
+    "LabelingLocationDescription": {
       "type": "string"
     },
-    "LabelingOrientation" :{
+    "LabelingOrientation": {
       "type": "array",
       "items": { "type": "number" }
     },
-    "LabelingDistance" :{
+    "LabelingDistance": {
       "type": "number"
     },
-    "LabelingPulseMaximumGradient" :{
+    "LabelingPulseMaximumGradient": {
       "type": "number",
       "exclusiveMinimum": 0
     },
-    "LabelingPulseFlipAngle" :{
+    "LabelingPulseFlipAngle": {
       "type": "number",
       "exclusiveMinimum": 0,
       "inclusiveMaximum": 360,
-      "_inclusiveMaximum_comment":"to be checked"
+      "_inclusiveMaximum_comment": "to be checked"
     },
-    "LabelingSlabThickness" :{
+    "LabelingSlabThickness": {
       "type": "number",
       "exclusiveMinimum": 0
     },
-    "AcquisitionVoxelSize" :{
+    "AcquisitionVoxelSize": {
       "type": "array",
       "items": {
-          "type": "number",
-          "exclusiveMinimum": 0
+        "type": "number",
+        "exclusiveMinimum": 0
       }
     },
-    "BackgroundSuppressionNumberPulses" :{
+    "BackgroundSuppressionNumberPulses": {
       "type": "number",
       "minimum": 0
     },
-    "BackgroundSuppressionPulseTime" :{
+    "BackgroundSuppressionPulseTime": {
       "type": "array",
       "items": {
         "type": "number",
         "minimum": 0
       }
     },
-    "VascularCrushingVenc" :{
+    "VascularCrushingVenc": {
       "anyOf": [
         { "type": "number" },
         {
@@ -132,48 +126,46 @@
         }
       ]
     },
-    "PCASLType" :{
+    "PCASLType": {
       "type": "string",
       "enum": ["balanced", "unbalanced"]
     },
-    "CASLType" :{
+    "CASLType": {
       "type": "string",
       "enum": ["single-coil", "double-coil"]
     },
-    "PASLType" :{
+    "PASLType": {
       "type": "string"
     },
-    "LookLocker" :{
-      "type": "boolean" 
-    },
-    "LabelingPulseDuration" :{
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "LabelingPulseInterval" :{
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "LabelingPulseAverageB1" :{
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "LabelingPulseAverageGradient" :{
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "LabelingEfficiency" :{
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "BolusCutOffFlag" :{
+    "LookLocker": {
       "type": "boolean"
     },
-    "BolusCutOffDelayTime" :{
+    "LabelingPulseDuration": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "LabelingPulseInterval": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "LabelingPulseAverageB1": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "LabelingPulseAverageGradient": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "LabelingEfficiency": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "BolusCutOffFlag": {
+      "type": "boolean"
+    },
+    "BolusCutOffDelayTime": {
       "anyOf": [
-        { "type": "number",
-          "Minimum": 0 
-        },
+        { "type": "number", "Minimum": 0 },
         {
           "type": "array",
           "items": { "type": "number" },
@@ -181,26 +173,35 @@
         }
       ]
     },
-    "BolusCutOffTechnique" :{
+    "BolusCutOffTechnique": {
       "type": "string"
     },
-    "M0": { 
-      "type": ["number", "string", "boolean"] 
+    "M0": {
+      "type": ["number", "string", "boolean"]
     },
-    "TotalAcquiredVolumes" :{
-          "type": "array",
-          "items": { "type": "number" }
+    "TotalAcquiredVolumes": {
+      "type": "array",
+      "items": { "type": "number" }
     },
-    "VolumeTiming" :{
-          "type": "array",
-          "items": { "type": "number" }
+    "VolumeTiming": {
+      "type": "array",
+      "items": { "type": "number" }
     },
-    "PulseSequenceDetails" : {
-      "type" : "string"
+    "PulseSequenceDetails": {
+      "type": "string"
     },
-    "Manufacturer" : {
-      "type" : "string"
+    "Manufacturer": {
+      "type": "string"
+    },
+    "MagneticFieldStrength": {
+      "type": "number",
+      "exclusiveMinimum": 0
     }
-
+  },
+  "required": ["MagneticFieldStrength"],
+  "errorMessage": {
+    "required": {
+      "MagneticFieldStrength": "You should define 'MagneticFieldStrength' for ths file. 'MagneticFieldStrength' is the nominal field strength of MR magnet in Tesla. Corresponds to DICOM Tag 0018,0087 Magnetic Field Strength."
+    }
   }
 }

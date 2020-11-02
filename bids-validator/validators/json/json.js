@@ -1,8 +1,10 @@
 import utils from '../../utils'
 import Ajv from 'ajv'
-const ajv = new Ajv({ allErrors: true })
+import wat from 'ajv-errors'
+let ajv = new Ajv({ allErrors: true })
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'))
 ajv.addSchema(require('./schemas/common_definitions.json'))
+ajv = wat(ajv)
 const Issue = utils.issues.Issue
 
 /**
@@ -110,13 +112,11 @@ const selectSchema = file => {
       file.name.endsWith('coordsystem.json')
     ) {
       schema = require('./schemas/coordsystem_eeg.json')
-    } else if (
-        file.name.endsWith('genetic_info.json')
-    ) {
+    } else if (file.name.endsWith('genetic_info.json')) {
       schema = require('./schemas/genetic_info.json')
     } else if (
-        file.name.endsWith('physio.json') ||
-        file.name.endsWith('stim.json')
+      file.name.endsWith('physio.json') ||
+      file.name.endsWith('stim.json')
     ) {
       schema = require('./schemas/physio.json')
     }
