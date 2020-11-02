@@ -11,9 +11,9 @@
     "test": "bids-validator/bin/test-submodule-exists && jest",
     "npmPublish": "cd bids-validator && publish",
     "lernaPublish": "./node_modules/.bin/lerna publish && ./tools/post_publish.sh",
-    "web-dev": "cd bids-validator-web && yarn dev",
-    "web-build": "cd bids-validator-web && yarn build",
-    "web-export": "yarn web-build && cd bids-validator-web && yarn next export"
+    "web-dev": "cd bids-validator-web && npm run dev",
+    "web-build": "cd bids-validator-web && npm run build",
+    "web-export": "npm run web-build && cd bids-validator-web && npm run next export"
   },
   "jest": {
     "testEnvironment": "node",
