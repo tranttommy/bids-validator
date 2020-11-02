@@ -34,13 +34,13 @@ jobs:
       - restore_cache:
           keys:
             - npm-deps-{{ checksum "package.json" }}
+      - run:
+          name: npm7
+          command: npm i -g npm@7
       - run: npm install
       - save_cache:
           key: npm-deps-{{ checksum "package.json" }}
           paths: node_modules
-      - run:
-          name: npm7
-          command: npm i -g npm@7
       - run:
           name: Eslint
           command: npm run lint
