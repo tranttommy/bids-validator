@@ -11,7 +11,7 @@
     "node": ">=10.11.0"
   },
   "bin": {
-    "bids-validator": "./bin/bids-validator"
+    "bids-validator": "bin/bids-validator"
   },
   "author": "Squishymedia",
   "license": "MIT",

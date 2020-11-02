@@ -149,6 +149,9 @@ jobs:
           name: Create new gh-pages branch without history
           command: git checkout --orphan gh-pages
       - run:
+          name: npm7
+          command: npm i -g npm@7
+      - run:
           name: Install web demo dependencies
           command: npm install
       - run:
