@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://example.com/example.json",
   "properties": {
     "Name": {
@@ -55,10 +55,12 @@
       "type": "object",
       "properties": {
         "Database": {
-          "type": "string", "format": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "Dataset": {
-          "type": "string", "format": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "Descriptors": {
           "items": {

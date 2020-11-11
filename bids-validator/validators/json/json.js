@@ -1,10 +1,10 @@
 import utils from '../../utils'
 import Ajv from 'ajv'
-import wat from 'ajv-errors'
-let ajv = new Ajv({ allErrors: true })
-ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'))
+import ajvErrors from 'ajv-errors'
+let ajv = new Ajv({ allErrors: true, jsonPointers: true })
 ajv.addSchema(require('./schemas/common_definitions.json'))
-ajv = wat(ajv)
+ajv = ajvErrors(ajv)
+
 const Issue = utils.issues.Issue
 
 /**
@@ -124,21 +124,53 @@ const selectSchema = file => {
   return schema
 }
 
+const errorKeywordIgnore = ['if', 'not']
+
 const validateSchema = (file, sidecar, schema) => {
   const issues = []
   if (schema) {
     const validate = ajv.compile(schema)
     const valid = validate(sidecar)
     if (!valid) {
-      validate.errors.map(error =>
-        issues.push(
-          new Issue({
-            file: file,
-            code: 55,
-            evidence: error.dataPath + ' ' + error.message,
-          }),
-        ),
+      /*
+      validate.errors.map(error => {
+        console.log("----------------------")
+        console.log(error)
+        if (error.params.errors) {
+          console.log(error.params.errors[0])
+        }
+      })
+      */
+      let errors = validate.errors.filter(
+        error => !errorKeywordIgnore.includes(error.keyword),
       )
+      errors.map(error => {
+        if (error.message === 'RECOMMENDED') {
+          issues.push(
+            new Issue({
+              file: file,
+              code: 194,
+              evidence: error.params.errors[0].params.missingProperty,
+            }),
+          )
+        } else if (error.message === 'PROHIBITED') {
+          issues.push(
+            new Issue({
+              file: file,
+              code: 195,
+              evidence: error.params.errors[0].params.propertyName,
+            }),
+          )
+        } else {
+          issues.push(
+            new Issue({
+              file: file,
+              code: 55,
+              evidence: error.dataPath + ' ' + error.message,
+            }),
+          )
+        }
+      })
     }
   }
   return issues

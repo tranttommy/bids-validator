@@ -89,7 +89,9 @@ describe('JSON', function() {
     jsonDict[eeg_file.relativePath] = jsonObj
     validate.JSON(eeg_file, jsonDict, function(issues) {
       assert(issues.length === 1)
-      assert(issues[0].evidence == '.CogAtlasID should match format "uri"')
+      assert(
+        issues[0].evidence.includes('CogAtlasID should match format "uri"'),
+      )
     })
   })
 
@@ -174,17 +176,15 @@ describe('JSON', function() {
     }
     jsonDict[meg_coordsystem_file.relativePath] = jsonObj
     validate.JSON(meg_coordsystem_file, jsonDict, function(issues) {
-      assert(issues.length === 4)
+      assert(issues.length === 2)
       assert(
         issues[0].evidence ==
           " should have required property 'HeadCoilCoordinateSystemDescription'",
       )
-      assert(issues[1].evidence == ' should match "then" schema')
       assert(
-        issues[2].evidence ==
+        issues[1].evidence ==
           " should have required property 'AnatomicalLandmarkCoordinateSystemDescription'",
       )
-      assert(issues[3].evidence == ' should match "then" schema')
     })
   })
 
@@ -226,7 +226,7 @@ describe('JSON', function() {
       assert(issues.length === 1)
       assert(
         issues[0].evidence ==
-          '.EEGCoordinateSystem should be equal to one of the allowed values',
+          '/EEGCoordinateSystem should be equal to one of the allowed values',
       )
     })
   })
@@ -242,12 +242,11 @@ describe('JSON', function() {
     }
     jsonDict[eeg_coordsystem_file.relativePath] = jsonObj
     validate.JSON(eeg_coordsystem_file, jsonDict, function(issues) {
-      assert(issues.length === 2)
+      assert(issues.length === 1)
       assert(
         issues[0].evidence ==
           " should have required property 'FiducialsCoordinateSystemDescription'",
       )
-      assert(issues[1].evidence == ' should match "then" schema')
     })
   })
 
@@ -259,7 +258,7 @@ describe('JSON', function() {
     }
     jsonDict[eeg_coordsystem_file.relativePath] = jsonObj
     validate.JSON(eeg_coordsystem_file, jsonDict, function(issues) {
-      assert(issues.length === 3)
+      assert(issues.length === 2)
       assert(
         issues[0].evidence ==
           " should have required property 'EEGCoordinateUnits'",
@@ -268,7 +267,6 @@ describe('JSON', function() {
         issues[1].evidence ==
           " should have required property 'AnatomicalLandmarkCoordinateSystemDescription'",
       )
-      assert(issues[2].evidence == ' should match "then" schema')
     })
   })
 
@@ -295,12 +293,11 @@ describe('JSON', function() {
     }
     jsonDict[ieeg_coordsystem_file.relativePath] = jsonObj
     validate.JSON(ieeg_coordsystem_file, jsonDict, function(issues) {
-      assert(issues.length === 2)
+      assert(issues.length === 1)
       assert(
         issues[0].evidence ==
           " should have required property 'iEEGCoordinateSystemDescription'",
       )
-      assert(issues[1].evidence == ' should match "then" schema')
     })
   })
 
