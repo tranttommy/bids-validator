@@ -110,12 +110,14 @@ const selectSchema = file => {
     } else if (file.name.endsWith('genetic_info.json')) {
       schema = require('./schemas/genetic_info.json')
     } else if (
-        file.name.endsWith('physio.json') ||
-        file.name.endsWith('stim.json')
+      file.name.endsWith('physio.json') ||
+      file.name.endsWith('stim.json')
     ) {
       schema = require('./schemas/physio.json')
     } else if (file.name.endsWith('events.json')) {
       schema = require('./schemas/events.json')
+    } else if (file.name.endsWith('eyetrack.json')) {
+      schema = require('./schemas/eyetrack.json')
     }
   }
   return schema

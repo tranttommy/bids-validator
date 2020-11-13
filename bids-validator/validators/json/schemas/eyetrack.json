@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "CogAtlasID": { "$ref": "common_definitions.json#/definitions/CogAtlasID" },
+    "CogPOID": { "$ref": "common_definitions.json#/definitions/CogPOID" },
+    "SamplingFrequency": {
+      "anyOf": [{ "type": "number" }, { "const": "multiple" }]
+    },
+    "SampleCoordinateUnit": { "type": "string" },
+    "SampleCoordinateSystem": {
+      "enum": ["gaze-on-screen", "eye-in-head", "gaze-in-world"]
+    },
+    "EnvironmentCoordinates": {
+      "anyOf": [
+        { "$ref": "common_definitions.json#/definitions/NA" },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [{ "type": "number" }, { "type": "string" }]
+          }
+        }
+      ]
+    },
+    "TaskName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "EnvironmentCoordinates",
+    "SamplingFrequency",
+    "SampleCoodinateUnit",
+    "SampleCoordingateSystem",
+    "TaskName"
+  ]
+}

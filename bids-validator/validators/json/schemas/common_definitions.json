@@ -32,6 +32,7 @@
     },
     "Manufacturer": { "type": "string", "minLength": 1 },
     "MiscChannelCount": { "type": "integer", "minimum": 0 },
+    "NA": { "type": "string", "pattern": "^n/a$" },
     "PowerLineFrequency": {
       "anyOf": [
         { "type": "number", "exclusiveMinimum": 0 },
@@ -41,11 +42,7 @@
     "RecordingDuration": { "type": "number" },
     "RecordingType": {
       "type": "string",
-      "enum": [
-        "continuous",
-        "epoched",
-        "discontinuous"
-      ]
+      "enum": ["continuous", "epoched", "discontinuous"]
     },
     "SamplingFrequency": { "type": "number" },
     "SoftwareFilters": {

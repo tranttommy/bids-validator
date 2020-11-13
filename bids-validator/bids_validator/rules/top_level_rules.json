@@ -28,10 +28,7 @@
         "_events\\.tsv",
         "_beh\\.json"
       ],
-      "@@@_cont_ext_@@@": [
-        "_physio\\.json",
-        "_stim\\.json"
-      ]
+      "@@@_cont_ext_@@@": ["_physio\\.json", "_stim\\.json"]
     }
   },
 
@@ -102,6 +99,12 @@
   },
   "multi_dir_fieldmap": {
     "regexp": "^[\\/\\\\](?:acq-[a-zA-Z0-9]+_)?(?:dir-[a-zA-Z0-9]+_)epi\\.json$"
+  },
+  "eyetrack_top": {
+    "regexp": "^[\\/\\\\](?:ses-[a-zA-Z0-9]+_)?_task-[a-zA-Z0-9]+(?:_acq-[a-zA-Z0-9]+)?(?:@@@_eyetrack_ext_@@@)$",
+    "tokens": {
+      "@@@_eyetrack_ext_@@@": ["_eyetrack\\.json"]
+    }
   },
   "other_top_files": {
     "regexp": "^[\\/\\\\](?:ses-[a-zA-Z0-9]+_)?(?:task-[a-zA-Z0-9]+_)?(?:acq-[a-zA-Z0-9]+_)?(?:rec-[a-zA-Z0-9]+_)?(?:run-[0-9]+_)?(?:recording-[a-zA-Z0-9]+_)?(@@@_other_top_files_ext_@@@)$",
