@@ -28,7 +28,22 @@ export default function checkHedStrings(events, headers, jsonContents, dir) {
         typeof sidecarValue === 'object' &&
         sidecarValue.HED !== undefined
       ) {
-        sidecarHedTags[sidecarKey] = sidecarValue.HED
+        const sidecarHedData = sidecarValue.HED
+        if (
+          typeof sidecarHedData === 'string' &&
+          sidecarHedData.split('#').length !== 2
+        ) {
+          issues.push(
+            new Issue({
+              code: 134,
+              file: eventFile.file,
+              evidence: sidecarHedData,
+            }),
+          )
+          sidecarHedTags[sidecarKey] = false
+        } else {
+          sidecarHedTags[sidecarKey] = sidecarHedData
+        }
       }
     }
 
@@ -59,10 +74,18 @@ export default function checkHedStrings(events, headers, jsonContents, dir) {
       }
       for (const sidecarHedColumn in sidecarHedColumnIndices) {
         const sidecarHedIndex = sidecarHedColumnIndices[sidecarHedColumn]
-        const sidecarHedKey = rowCells[sidecarHedIndex]
-        if (sidecarHedKey) {
-          const sidecarHedString =
-            sidecarHedTags[sidecarHedColumn][sidecarHedKey]
+        const sidecarHedData = sidecarHedTags[sidecarHedColumn]
+        const rowCell = rowCells[sidecarHedIndex]
+        if (rowCell) {
+          let sidecarHedString
+          if (!sidecarHedData) {
+            continue
+          }
+          if (typeof sidecarHedData === 'string') {
+            sidecarHedString = sidecarHedData.replace('#', rowCell)
+          } else {
+            sidecarHedString = sidecarHedData[rowCell]
+          }
           if (sidecarHedString !== undefined) {
             hedStringParts.push(sidecarHedString)
           } else {
@@ -70,7 +93,7 @@ export default function checkHedStrings(events, headers, jsonContents, dir) {
               new Issue({
                 code: 112,
                 file: eventFile.file,
-                evidence: sidecarHedKey,
+                evidence: rowCell,
               }),
             )
           }
@@ -106,20 +129,28 @@ export default function checkHedStrings(events, headers, jsonContents, dir) {
     }
 
     // run HED validator
-    return hedValidator.buildSchema(schemaDefinition).then(hedSchema => {
-      for (const [file, hedString] of hedStrings) {
-        const [isHedStringValid, hedIssues] = hedValidator.validateHedString(
-          hedString,
-          hedSchema,
-          true,
-        )
-        if (!isHedStringValid) {
-          const convertedIssues = convertHedIssuesToBidsIssues(hedIssues, file)
-          issues = issues.concat(convertedIssues)
+    return hedValidator.validator
+      .buildSchema(schemaDefinition)
+      .then(hedSchema => {
+        for (const [file, hedString] of hedStrings) {
+          const [
+            isHedStringValid,
+            hedIssues,
+          ] = hedValidator.validator.validateHedString(
+            hedString,
+            hedSchema,
+            true,
+          )
+          if (!isHedStringValid) {
+            const convertedIssues = convertHedIssuesToBidsIssues(
+              hedIssues,
+              file,
+            )
+            issues = issues.concat(convertedIssues)
+          }
         }
-      }
-      return issues
-    })
+        return issues
+      })
   }
 }
 
@@ -139,6 +170,10 @@ function convertHedIssuesToBidsIssues(hedIssues, file) {
     unitClassDefaultUsed: 120,
     unitClassInvalidUnit: 121,
     extraCommaOrInvalid: 122,
+    invalidParentNode: 135,
+    noValidTagFound: 136,
+    emptyTagFound: 137,
+    duplicateTagsInSchema: 138,
   }
 
   const convertedIssues = []

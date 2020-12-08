@@ -78,6 +78,8 @@ Some of our awesome contributors include:
 
 [![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/0)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/0)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/1)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/1)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/2)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/2)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/3)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/3)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/4)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/4)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/5)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/5)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/6)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/6)[![](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/images/7)](https://sourcerer.io/fame/chrisfilo/bids-standard/bids-validator/links/7)
 
+Please also see [Acknowledgments](#acknowledgments).
+
 ## Use
 
 ### API
@@ -371,7 +373,8 @@ Using lerna publish will create a git commit with updated version information an
 ## Acknowledgments
 
 Many contributions to the `bids-validator` were done by members of the
-BIDS community. See the [list of contributors](https://github.com/bids-standard/bids-validator/graphs/contributors).
+BIDS community. See the
+[list of contributors](https://bids-specification.readthedocs.io/en/stable/99-appendices/01-contributors.html).
 
 A large part of the development of `bids-validator` is currently done by
 [Squishymedia](https://squishymedia.com/), who are in turn financed through
