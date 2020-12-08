@@ -1,5 +1,4 @@
 ---
-# First group
 - suffixes:
     - ieeg
   extensions:
@@ -18,17 +17,3 @@
     task: required
     acq: optional
     run: optional
-# Second group
-- suffixes:
-    - physio
-    - stim
-  extensions:
-    - .tsv.gz
-    - .json
-  entities:
-    sub: required
-    ses: optional
-    task: required
-    acq: optional
-    run: optional
-    recording: optional

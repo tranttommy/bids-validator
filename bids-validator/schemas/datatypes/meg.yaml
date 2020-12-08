@@ -3,7 +3,7 @@
 - suffixes:
     - meg
   extensions:
-    - / # corresponds to BTi/4D data
+    - /  # corresponds to BTi/4D data
     - .ds/
     - .json
     - .fif
@@ -43,20 +43,3 @@
     task: optional
     acq: optional
     space: optional
-# Third group
-- suffixes:
-    - physio
-    - stim
-  extensions:
-    - .tsv.gz
-    - .json
-  entities:
-    sub: required
-    ses: optional
-    task: required
-    acq: optional
-    run: optional
-    proc: optional
-    split: optional
-    space: optional
-    recording: optional

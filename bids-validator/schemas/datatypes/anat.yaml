@@ -26,6 +26,7 @@
     acq: optional
     ce: optional
     rec: optional
+    part: optional
 # Second group
 - suffixes:
     - defacemask
@@ -41,18 +42,3 @@
     ce: optional
     rec: optional
     mod: optional
-# Third group
-- suffixes:
-    - physio
-    - stim
-  extensions:
-    - .tsv.gz
-    - .json
-  entities:
-    sub: required
-    ses: optional
-    run: optional
-    acq: optional
-    ce: optional
-    rec: optional
-    recording: optional
