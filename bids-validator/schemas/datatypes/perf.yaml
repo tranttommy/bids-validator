@@ -1,9 +1,8 @@
 ---
 # First group
 - suffixes:
-    - bold
-    - cbv
-    - sbref
+    - asl
+    - m0scan
   extensions:
     - .nii.gz
     - .nii
@@ -11,59 +10,31 @@
   entities:
     subject: required
     session: optional
-    task: required
     acquisition: optional
-    ceagent: optional
     reconstruction: optional
     direction: optional
     run: optional
-    echo: optional
-    part: optional
 # Second group
 - suffixes:
-    - phase
-  extensions:
-    - .nii.gz
-    - .nii
-    - .json
-  entities:
-    subject: required
-    session: optional
-    task: required
-    acquisition: optional
-    ceagent: optional
-    reconstruction: optional
-    direction: optional
-    run: optional
-    echo: optional
-# Third group
-- suffixes:
-    - events
+    - aslcontext
   extensions:
     - .tsv
     - .json
   entities:
     subject: required
     session: optional
-    task: required
     acquisition: optional
-    ceagent: optional
     reconstruction: optional
     direction: optional
     run: optional
-    echo: optional
-# Fourth group
+# Third group
 - suffixes:
-    - physio
-    - stim
+    - asllabeling
   extensions:
-    - .tsv.gz
-    - .json
+    - .jpg
   entities:
     subject: required
     session: optional
-    task: required
     acquisition: optional
     reconstruction: optional
     run: optional
-    recording: optional

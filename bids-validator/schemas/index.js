@@ -37,10 +37,13 @@ const generateRegex = (pythonRegex = false) => {
         if (entity === 'sub' || entity === 'ses') {
           return
         }
-        let format = regex[Object.values(entities).find(elem => elem.entity === entity).format]
+        console.log(type)
+        console.log(entity)
+        console.log('-----------')
+        let format = regex[entities[entity].format]
         file_regex = file_regex.concat(
           `(?${P}<${entity}>_${entity}-${format})${
-            regex[datatype_yaml.entities[entity]]
+            regex[entities[entity].entity]
           }`,
         )
       })
