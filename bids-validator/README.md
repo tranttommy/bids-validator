@@ -84,12 +84,14 @@ Please also see [Acknowledgments](#acknowledgments).
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/rwblair"><img src="https://avatars2.githubusercontent.com/u/14927911?v=4" width="100px;" alt=""/><br /><sub><b>Ross Blair</b></sub></a><br /><a href="#maintenance-rwblair" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/rwblair"><img src="https://avatars2.githubusercontent.com/u/14927911?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ross Blair</b></sub></a><br /><a href="#maintenance-rwblair" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://tsalo.github.io"><img src="https://avatars.githubusercontent.com/u/8228902?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Taylor Salo</b></sub></a><br /><a href="https://github.com/bids-standard/bids-validator/commits?author=tsalo" title="Code">💻</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Use
