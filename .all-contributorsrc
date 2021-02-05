@@ -13,6 +13,19 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "effigies",
+      "name": "Chris Markiewicz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83442?v=4",
+      "profile": "https://github.com/effigies",
+      "contributions": [
+        "code",
+        "ideas",
+        "infra",
+        "question",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
