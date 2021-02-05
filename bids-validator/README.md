@@ -84,12 +84,14 @@ Please also see [Acknowledgments](#acknowledgments).
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/rwblair"><img src="https://avatars2.githubusercontent.com/u/14927911?v=4" width="100px;" alt=""/><br /><sub><b>Ross Blair</b></sub></a><br /><a href="#maintenance-rwblair" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/rwblair"><img src="https://avatars2.githubusercontent.com/u/14927911?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ross Blair</b></sub></a><br /><a href="#maintenance-rwblair" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/effigies"><img src="https://avatars.githubusercontent.com/u/83442?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Chris Markiewicz</b></sub></a><br /><a href="https://github.com/bids-standard/bids-validator/commits?author=effigies" title="Code">💻</a> <a href="#ideas-effigies" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-effigies" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#question-effigies" title="Answering Questions">💬</a> <a href="https://github.com/bids-standard/bids-validator/pulls?q=is%3Apr+reviewed-by%3Aeffigies" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Use
