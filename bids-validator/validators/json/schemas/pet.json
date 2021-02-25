@@ -141,18 +141,23 @@
     "Manufacturer",
     "ManufacturersModelName",
     "Unit",
+
     "TracerName",
     "TracerRadionuclide",
-
     "InjectedRadioactivity",
     "InjectedRadioactivityUnit",
+    "InjectedMass",
+    "InjectedMassUnit",
+    "SpecificRadioactivity",
+    "SpecificRadioactivityUnit",
     "ModeOfAdministration",
 
+    "TimeZero",
     "ScanStart",
     "InjectionStart",
-    "TimeZero",
     "FrameTimesStart",
     "FrameDuration",
+    
     "AcquisitionMode",
     "ImageDecayCorrected",
     "ImageDecayCorrectionTime",
