@@ -121,22 +121,6 @@
       "items": { "type": "number" }
     }
   },
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "TracerName": {
-            "enum": ["FDG"]
-          }
-        }
-      },
-      "then": {
-      },
-      "else": {
-        "required": ["InjectedMass", "InjectedMassUnit", "SpecificRadioactivity", "SpecificRadioactivityUnit"]
-      }
-    }
-  ],
   "required": [
     "Manufacturer",
     "ManufacturersModelName",
