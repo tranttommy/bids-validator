@@ -155,17 +155,9 @@
   ],
   "dependencies": {
     "TracerMolecularWeight": ["TracerMolecularWeightUnit"],
-    "BodyWeight": ["BodyWeightUnit"],
-
-    "InjectedRadioactivity": ["InjectedRadioactivityUnit"],
-    "InjectedMass": ["InjectedMassUnit"],
     "InjectedMassPerWeight": ["InjectedMassPerWeightUnit"],
     "MolarActivity": ["MolarActivityUnit"],
-    "SpecificRadioactivity": ["SpecificRadioactivityUnit"],
-    "Purity": ["PurityUnit"],
     "InfusionSpeed": ["InfusionSpeedUnit"],
-    "InjectedVolume": ["InjectedVolumeUnit"],
-
     "ReconMethodParameterLabels": [
       "ReconMethodParameterUnit",
       "ReconMethodParameterValues"
