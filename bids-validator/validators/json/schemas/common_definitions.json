@@ -78,6 +78,7 @@
       }
     },
     "Manufacturer": { "type": "string", "minLength": 1 },
+    "ManufacturersModelName": { "type": "string", "minLength": 1 },
     "MiscChannelCount": { "type": "integer", "minimum": 0 },
     "PowerLineFrequency": {
       "anyOf": [
