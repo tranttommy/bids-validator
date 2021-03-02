@@ -30,8 +30,6 @@ const anatMP2RAGE = buildRegExp(file_level_rules.anat_mp2rage)
 const anatVFAMT = buildRegExp(file_level_rules.anat_vfa_mt)
 const anatMTR = buildRegExp(file_level_rules.anat_mtr)
 const behavioralData = buildRegExp(file_level_rules.behavioral)
-const petDataFile = buildRegExp(file_level_rules.pet_data)
-const petBloodDataFile = buildRegExp(file_level_rules.pet_blood_data)
 const dwiData = buildRegExp(file_level_rules.dwi)
 const eegData = buildRegExp(file_level_rules.eeg)
 const fmapGre = buildRegExp(file_level_rules.fmap_gre)
@@ -290,14 +288,6 @@ export default {
       return conditionalMatch(funcBoldData, path)
     },
 
-    isPETData: function(path) {
-      return conditionalMatch(petDataFile, path)
-    },
-
-    isPETBloodData: function(path) {
-      return conditionalMatch(petBloodDataFile, path)
-    },
-
     hasModality: function(path) {
       return (
         this.isAnat(path) ||
@@ -311,8 +301,8 @@ export default {
         this.isIEEG(path) ||
         this.isBehavioral(path) ||
         this.isFuncBold(path) ||
-        this.isPETData(path) ||
-        this.isPETBloodData(path)
+        this.isPET(path) ||
+        this.isPETBlood(path)
       )
     },
   },
